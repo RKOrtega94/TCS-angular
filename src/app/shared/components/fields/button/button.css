@@ -19,12 +19,30 @@ button {
   color: var(--text-color);
 }
 
+button.primary:hover {
+  background-color: var(--primary-color-hover);
+}
+
 .secondary {
   background-color: var(--secondary-color);
   color: var(--text-color);
 }
 
+button.secondary:hover {
+  background-color: var(--secondary-color-hover);
+}
+
 .default {
   background-color: var(--background-color);
   color: var(--text-color);
+}
+
+.small {
+  height: 2rem;
+  font-size: 0.75rem;
+}
+
+.large {
+  height: 3rem;
+  font-size: 1rem;
 }

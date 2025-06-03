@@ -9,4 +9,5 @@ import { Component, input } from '@angular/core';
 })
 export class Button {
   variant = input<'primary' | 'secondary' | 'default'>('default');
+  size = input<'small' | 'medium' | 'large'>('medium');
 }

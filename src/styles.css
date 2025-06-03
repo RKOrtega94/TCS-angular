@@ -11,6 +11,8 @@
   --primary-color: #f5df66;
   --secondary-color: #eaecf2;
   --text-color: #333333;
+  --primary-color-hover: #e0c24b;
+  --secondary-color-hover: #d1d1d1;
 }
 
 :root.dark-mode {
@@ -18,6 +20,8 @@
   --primary-color: #f5df66;
   --secondary-color: #1e1e1e;
   --text-color: #ffffff;
+  --primary-color-hover: #e0c24b;
+  --secondary-color-hover: #2c2c2c;
 }
 
 html,
