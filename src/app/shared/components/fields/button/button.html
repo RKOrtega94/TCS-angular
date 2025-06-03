@@ -1,5 +1,13 @@
 <button
-  [ngClass]="{'primary': variant() === 'primary', 'secondary': variant() === 'secondary', 'default': variant() === 'default'}"
+  [ngClass]="{
+    'primary': variant() === 'primary',
+    'secondary': variant() === 'secondary',
+    'default': variant() === 'default',
+    'small': size() === 'small',
+    'medium': size() === 'medium',
+    'large': size() === 'large',
+    }"
+  [disabled]="disabled()"
 >
   <ng-content></ng-content>
 </button>

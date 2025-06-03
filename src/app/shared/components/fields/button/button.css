@@ -1,3 +1,4 @@
+/* Button Base Styles */
 button {
   cursor: pointer;
   height: 2.5rem;
@@ -6,43 +7,64 @@ button {
   border-radius: 0.25rem;
   font-size: 0.875rem;
   font-weight: 500;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  text-wrap: nowrap;
+  transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.primary {
+/* Variants */
+button.primary {
   background-color: var(--primary-color);
   color: var(--text-color);
 }
-
-button.primary:hover {
+button.primary:disabled {
+  background-color: var(--primary-color-hover);
+  color: var(--text-color);
+  cursor: not-allowed;
+}
+button.primary:hover:not(:disabled) {
   background-color: var(--primary-color-hover);
 }
 
-.secondary {
+button.secondary {
   background-color: var(--secondary-color);
   color: var(--text-color);
 }
-
-button.secondary:hover {
+button.secondary:disabled {
+  background-color: var(--secondary-color-hover);
+  color: var(--text-color);
+  cursor: not-allowed;
+}
+button.secondary:hover:not(:disabled) {
   background-color: var(--secondary-color-hover);
 }
 
-.default {
+button.default {
   background-color: var(--background-color);
   color: var(--text-color);
 }
+button.default:disabled {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  cursor: not-allowed;
+}
 
-.small {
+/* Sizes */
+button.small {
   height: 2rem;
   font-size: 0.75rem;
 }
 
-.large {
+button.medium {
+  height: 2.5rem;
+  font-size: 0.875rem;
+  min-width: 4rem;
+}
+
+button.large {
   height: 3rem;
   font-size: 1rem;
 }
