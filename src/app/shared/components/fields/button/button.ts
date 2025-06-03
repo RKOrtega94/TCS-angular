@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-button',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './button.html',
-  styleUrl: './button.css'
+  styleUrl: './button.css',
 })
 export class Button {
-
+  variant = input<'primary' | 'secondary' | 'default'>('default');
 }

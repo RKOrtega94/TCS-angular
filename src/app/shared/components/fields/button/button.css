@@ -1,0 +1,30 @@
+button {
+  cursor: pointer;
+  height: 2.5rem;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-wrap: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.primary {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.secondary {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.default {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

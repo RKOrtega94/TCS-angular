@@ -8,10 +8,16 @@
 
 :root {
   --background-color: #f4f6f9;
+  --primary-color: #f5df66;
+  --secondary-color: #eaecf2;
+  --text-color: #333333;
 }
 
 :root.dark-mode {
   --background-color: #121212;
+  --primary-color: #f5df66;
+  --secondary-color: #1e1e1e;
+  --text-color: #ffffff;
 }
 
 html,
