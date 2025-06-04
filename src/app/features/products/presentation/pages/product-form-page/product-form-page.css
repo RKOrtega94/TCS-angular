@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90dvw;
+  height: fit-content;
+  max-width: 50rem;
+  margin-block: auto;
+  margin-inline: auto;
+  box-sizing: border-box;
+  background-color: #fff;
+  gap: 0.5rem;
+}
+
+header {
+  width: 100%;
+  padding: 1rem;
+  color: var(--text-color);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Arial", sans-serif;
+}
+
+section {
+  width: 100%;
+}

@@ -1,1 +1,13 @@
-<p>product-form-page works!</p>
+<main>
+  <header>
+    @if (route().endsWith('add')) {
+    <h3>Registry Form</h3>
+    } @else {
+    <h3>Edit Product</h3>
+    }
+  </header>
+  <div class="divider"></div>
+  <section class="form">
+    <app-product-form />
+  </section>
+</main>

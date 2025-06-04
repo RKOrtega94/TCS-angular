@@ -1,4 +1,16 @@
 <div>
-  <label for=""></label>
-  <input type="text" [placeholder]="placeholder()" />
+  @if(label()) {
+  <label for=""> {{ label() }} </label>
+  }
+  <input
+    [type]="type()"
+    [placeholder]="placeholder()"
+    [formControl]="controller()"
+    [ngClass]="{
+      'error': getError() && controller().touched,
+    }"
+  />
+  @if(getError() && controller().touched) {
+  <span class="error-message"> {{ getError() }} </span>
+  }
 </div>

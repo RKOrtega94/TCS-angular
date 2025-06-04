@@ -1,1 +1,32 @@
-<p>product-form works!</p>
+<form [formGroup]="formGroup">
+  <app-text-field
+    label="ID"
+    placeholder="Product ID"
+    [controller]="productForm.id"
+  />
+  <app-text-field
+    label="Name"
+    placeholder="Product Name"
+    [controller]="productForm.name"
+  />
+  <app-text-field
+    label="Description"
+    placeholder="Product Description"
+    [controller]="productForm.description"
+  />
+  <app-text-field
+    label="Logo"
+    placeholder="Product Logo"
+    [controller]="productForm.logo"
+  />
+  <app-text-field
+    label="Release date"
+    placeholder="Product release date"
+    [controller]="productForm.releaseDate"
+  />
+  <app-text-field
+    label="Review date"
+    placeholder="Product review date"
+    [controller]="productForm.reviewDate"
+  />
+</form>

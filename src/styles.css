@@ -40,3 +40,15 @@ body {
   width: 100%;
   padding: 1rem;
 }
+
+.divider {
+  width: 100%;
+  height: 0.15rem;
+  background-color: #ccc;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
