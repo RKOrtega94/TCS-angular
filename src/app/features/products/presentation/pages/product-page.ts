@@ -16,7 +16,6 @@ const initialState: ProductState = {
 };
 
 @Component({
-  selector: 'app-product-page',
   imports: [ProductFilter, ProductList, ProductAdd],
   templateUrl: './product-page.html',
   styleUrl: './product-page.css',
