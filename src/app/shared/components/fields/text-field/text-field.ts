@@ -32,6 +32,8 @@ export class TextField {
         return `Date must be after ${errors[
           'minDate'
         ].requiredDate.toLocaleDateString()}.`;
+      } else if (errorKeys.includes('invalidProductId')) {
+        return 'Invalid product ID.';
       }
     }
     return null;
