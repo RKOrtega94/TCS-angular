@@ -13,7 +13,17 @@ export class ProductRepositoryImpl
 {
   #basePath: string = 'bp/products';
 
-  getAll(): Observable<Product[]> {
-    return this.GET<Product[]>(this.#basePath);
+  getAll(params: Record<string, any> | null): Observable<Product[]> {
+    return this.GET<Product[]>(this.#basePath, { params });
+  }
+
+  create(product: Product): Observable<Product> {
+    return this.POST<Product>(this.#basePath, product);
+  }
+
+  validate(productId: string): Observable<boolean> {
+    return this.http.get<boolean>(
+      `${this.#basePath}/verification/${productId}`
+    );
   }
 }

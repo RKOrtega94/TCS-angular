@@ -1,4 +1,3 @@
-import { IProductRepository } from './features/products/domain/product.repository';
 import {
   ApplicationConfig,
   provideBrowserGlobalErrorListeners,
@@ -13,7 +12,7 @@ import {
   withInterceptors,
 } from '@angular/common/http';
 import { apiInterceptor } from './core/api/api-interceptor';
-import { ProductRepositoryImpl } from './features/products/data/repositories/product.repository.impl';
+import { APP_PROVIDERS } from './app.providers';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,9 +20,6 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideRouter(routes),
     provideHttpClient(withFetch(), withInterceptors([apiInterceptor])),
-    {
-      provide: 'IProductRepository',
-      useClass: ProductRepositoryImpl,
-    },
+    ...APP_PROVIDERS,
   ],
 };

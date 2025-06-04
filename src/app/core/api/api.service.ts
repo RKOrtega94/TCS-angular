@@ -5,10 +5,10 @@ import { ApiResponse } from './api.response.interface';
 
 @Injectable({ providedIn: 'root' })
 export abstract class ApiService {
-  #http = inject(HttpClient);
+  protected http = inject(HttpClient);
 
   GET<T>(url: string, params?: Record<string, any>): Observable<T> {
-    return this.#http.get<ApiResponse<T>>(url, { params }).pipe(
+    return this.http.get<ApiResponse<T>>(url, { params }).pipe(
       map((response) => response.data),
       catchError(this.#hadleError)
     );
@@ -19,21 +19,21 @@ export abstract class ApiService {
     body?: any,
     params?: Record<string, any>
   ): Observable<T> {
-    return this.#http.post<ApiResponse<T>>(url, body, { params }).pipe(
+    return this.http.post<ApiResponse<T>>(url, body, { params }).pipe(
       map((response) => response.data),
       catchError(this.#hadleError)
     );
   }
 
   PUT<T>(url: string, body?: any, params?: Record<string, any>): Observable<T> {
-    return this.#http.put<ApiResponse<T>>(url, body, { params }).pipe(
+    return this.http.put<ApiResponse<T>>(url, body, { params }).pipe(
       map((response) => response.data),
       catchError(this.#hadleError)
     );
   }
 
   DELETE<T>(url: string, params?: Record<string, any>): Observable<T> {
-    return this.#http.delete<ApiResponse<T>>(url, { params }).pipe(
+    return this.http.delete<ApiResponse<T>>(url, { params }).pipe(
       map((response) => response.data),
       catchError(this.#hadleError)
     );

@@ -4,6 +4,7 @@ import { ProductList } from '../components/product-list/product-list';
 import { ProductAdd } from '../components/product-add/product-add';
 import { GetAllProductsUsecase } from '../../domain/use-cases/get-all-products.usecase';
 import { Product } from '../../domain/product.model';
+import { FormControl } from '@angular/forms';
 
 interface ProductState {
   products: Product[];
@@ -25,15 +26,18 @@ export class ProductPage implements OnInit {
   #state = signal<ProductState>(initialState);
   products = computed(() => this.#state().products);
   loading = computed(() => this.#state().loading);
+  searchController = new FormControl<string>('');
 
   ngOnInit(): void {
-    this.#getAllProducts.execute().subscribe({
-      next(value) {
-        console.log(value);
-      },
-      error(err) {
-        console.error(err);
-      },
-    });
+    this.#getAllProducts
+      .execute({ name: this.searchController.value })
+      .subscribe({
+        next(value) {
+          console.log(value);
+        },
+        error(err) {
+          console.error(err);
+        },
+      });
   }
 }

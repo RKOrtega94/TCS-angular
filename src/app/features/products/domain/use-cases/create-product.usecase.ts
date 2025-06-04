@@ -1,18 +1,18 @@
-import { Observable } from 'rxjs';
-import { IProductRepository } from './../product.repository';
 import { Inject, Injectable } from '@angular/core';
+import { IProductRepository } from '../product.repository';
 import { Product } from '../product.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class GetAllProductsUsecase {
+export class CreateProductUsecase {
   constructor(
     @Inject('IProductRepository')
     private readonly _productRepository: IProductRepository
   ) {}
 
-  execute(params: Record<string, any> | null): Observable<Product[]> {
-    return this._productRepository.getAll(params);
+  excecute(product: Product): Observable<Product> {
+    return this._productRepository.create(product);
   }
 }
