@@ -1,6 +1,8 @@
+import { Observable } from 'rxjs';
 import { ProductRepositoryImpl } from '../../data/repositories/product.repository.impl';
 import { IProductRepository } from './../product.repository';
 import { Inject, inject, Injectable } from '@angular/core';
+import { Product } from '../product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +13,7 @@ export class GetAllProductsUsecase {
     private readonly _productRepository: IProductRepository
   ) {}
 
-  execute() {
+  execute(): Observable<Product[]> {
     return this._productRepository.getAll();
   }
 }
