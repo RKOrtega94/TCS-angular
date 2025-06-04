@@ -12,6 +12,8 @@ import {
   withInterceptors,
 } from '@angular/common/http';
 import { apiInterceptor } from './core/api/api-interceptor';
+import { IProductRepository } from './features/products/domain/product.repository';
+import { ProductRepositoryImpl } from './features/products/data/repositories/product.repository.impl';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,5 +21,6 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideRouter(routes),
     provideHttpClient(withFetch(), withInterceptors([apiInterceptor])),
+    { provide: IProductRepository, useClass: ProductRepositoryImpl } // Add this line
   ],
 };

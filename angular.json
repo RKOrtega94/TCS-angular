@@ -62,7 +62,8 @@
               "buildTarget": "TCS-angular:build:production"
             },
             "development": {
-              "buildTarget": "TCS-angular:build:development"
+              "buildTarget": "TCS-angular:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

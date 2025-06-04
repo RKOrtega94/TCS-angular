@@ -1,13 +1,31 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+
+// Interface definition added here
+export interface ApiResponse<T> {
+  data: T;
+  message?: string;
+}
 
 @Injectable({ providedIn: 'root' })
 export abstract class ApiService {
   #http = inject(HttpClient);
 
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    // Log error to console or use a logging service
+    console.error('ApiService error:', error);
+    // Optionally, transform the error or extract a message from ApiResponse if backend sends errors in that format
+    // For now, rethrow a user-friendly error or the original error
+    return throwError(() => new Error('Something went wrong with the API request. Please try again later.'));
+  }
+
   GET<T>(url: string, params?: Record<string, any>): Observable<T> {
-    return this.#http.get<T>(url, { params });
+    return this.#http.get<ApiResponse<T>>(url, { params }).pipe(
+      map(response => response.data),
+      catchError(this.handleError)
+    );
   }
 
   POST<T>(
@@ -15,14 +33,23 @@ export abstract class ApiService {
     body?: any,
     params?: Record<string, any>
   ): Observable<T> {
-    return this.#http.post<T>(url, body, { params });
+    return this.#http.post<ApiResponse<T>>(url, body, { params }).pipe(
+      map(response => response.data),
+      catchError(this.handleError)
+    );
   }
 
   PUT<T>(url: string, body?: any, params?: Record<string, any>): Observable<T> {
-    return this.#http.put<T>(url, body, { params });
+    return this.#http.put<ApiResponse<T>>(url, body, { params }).pipe(
+      map(response => response.data),
+      catchError(this.handleError)
+    );
   }
 
   DELETE<T>(url: string, params?: Record<string, any>): Observable<T> {
-    return this.#http.delete<T>(url, { params });
+    return this.#http.delete<ApiResponse<T>>(url, { params }).pipe(
+      map(response => response.data),
+      catchError(this.handleError)
+    );
   }
 }

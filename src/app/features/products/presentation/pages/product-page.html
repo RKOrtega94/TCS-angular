@@ -3,5 +3,5 @@
   <app-product-add />
 </header>
 <main>
-  <app-product-list />
+  <app-product-list [products]="products$ | async"></app-product-list>
 </main>
