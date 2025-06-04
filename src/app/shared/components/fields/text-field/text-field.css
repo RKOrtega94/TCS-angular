@@ -24,3 +24,10 @@ input:focus {
 input.error {
   border-color: red;
 }
+
+.text-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.25rem;
+}
