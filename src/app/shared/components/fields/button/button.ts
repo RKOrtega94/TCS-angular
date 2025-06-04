@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { booleanAttribute, Component, input } from '@angular/core';
+import { booleanAttribute, Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -13,4 +13,12 @@ export class Button {
   disabled = input(false, {
     transform: booleanAttribute,
   });
+  click = output<MouseEvent>();
+  type = input<'button' | 'submit' | 'reset'>('button');
+
+  handleClick(event: MouseEvent): void {
+    if (!this.disabled()) {
+      this.click.emit(event);
+    }
+  }
 }

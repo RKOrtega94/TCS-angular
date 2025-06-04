@@ -3,3 +3,26 @@
   width: max-content;
   height: max-content;
 }
+
+a {
+  text-wrap: nowrap;
+  height: 2.5rem;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 0.5rem;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  color: var(--text-color);
+}
+
+a:hover {
+  background-color: var(--primary-color-hover);
+}
+
+a:disabled {
+  background-color: var(--primary-color-hover);
+  color: var(--text-color);
+  cursor: not-allowed;
+}

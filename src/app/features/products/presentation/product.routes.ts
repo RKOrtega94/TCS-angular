@@ -11,11 +11,11 @@ export const productRoutes: Routes = [
         component: ProductPage,
       },
       {
-        path: 'form',
+        path: 'add',
         component: ProductFormPage,
       },
       {
-        path: 'form/:id',
+        path: ':id',
         component: ProductFormPage,
       },
       {
